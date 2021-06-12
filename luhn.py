@@ -44,11 +44,15 @@ def add_check_sum(number):
 
 if __name__ == '__main__':
     argc = len(sys.argv)
-    if argc == 3:
+    if argc > 2:
         if sys.argv[1] == '-v':
             print(check_Luhn(sys.argv[2]))
         elif sys.argv[1] == '-c':
-            print(generate_Luhn(sys.argv[2]))
+            if argc == 4:
+                for i in range(0, int(sys.argv[3])+1):
+                    print(generate_Luhn(sys.argv[2]))
+            else:
+                print(generate_Luhn(sys.argv[2]))
         else:
             print("usage: luhn.py type")
     else:
